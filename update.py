@@ -1,4 +1,6 @@
 # To save lib u're using
-# pip freeze > .\venv\requirements.txt
 import subprocess
-subprocess.run(["powershell", "-noexit", 'pip freeze > .\\venv\\requirements.txt'])
+subprocess.run(["powershell", 'pip freeze > .\\venv\\requirements.txt'])
+# check https://pypi.org/project/opencv-python/
+# pip install opencv-python
+# pip install opencv-contrib-python

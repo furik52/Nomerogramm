@@ -23,11 +23,11 @@ if command != activate:
     subprocess.Popen([r'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe',
                     '-ExecutionPolicy',
                     'Bypass',
-                    command
-                    ], cwd=os.getcwd())
+                    command])
+os.system('cls')
 
 if os.path.isdir("./venv/venv/Scripts") and command == activate:
     subprocess.run(["powershell", "-noexit", '.\\venv\\venv\\Scripts\\Activate.ps1'])
 else:
-    print('Restart \'start.py\' to activate venv.')
+    print('Waiting for lib to install', 'Restart \'start.py\' to activate venv.', sep='\n')
     exit()
