@@ -26,7 +26,7 @@ if command != activate:
                     command])
 os.system('cls')
 
-if os.path.isdir("./venv/venv/Scripts") and command == activate:
+if os.path.exists("./venv/venv/Scripts/Activate.ps1") and command == activate:
     subprocess.run(["powershell", "-noexit", '.\\venv\\venv\\Scripts\\Activate.ps1'])
 else:
     print('Waiting for lib to install', 'Restart \'start.py\' to activate venv.', sep='\n')
