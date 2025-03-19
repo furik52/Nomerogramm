@@ -1,4 +1,4 @@
-import subprocess, os
+import subprocess, os, sys
 
 init = './venv/init.ps1'
 update = './venv/update.ps1'
@@ -7,17 +7,10 @@ command = init
 
 os.system('.\\venv\\ExecutionPolicy.bat')
 
-if os.path.isdir("./venv/venv"):
-    command = str(input('Enter the script(update/activate, default = activate):'))
-if command == 'init' or command == 'i':
-    command = init
-elif command == 'update' or command == 'u':
+if os.path.isdir("./venv/venv") and ('-u' in sys.argv or '-update' in sys.argv):
     command = update
-else:
+elif os.path.exists("./venv/venv/Scripts/Activate.ps1"):
     command = activate
-
-if not(os.path.isdir("./venv/venv")):
-    command = init
 
 if command != activate:
     subprocess.Popen([r'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe',
@@ -26,7 +19,7 @@ if command != activate:
                     command])
 os.system('cls')
 
-if os.path.exists("./venv/venv/Scripts/Activate.ps1") and command == activate:
+if command == activate:
     subprocess.run(["powershell", "-noexit", '.\\venv\\venv\\Scripts\\Activate.ps1'])
 else:
     print('Waiting for lib to install', 'Restart \'start.py\' to activate venv.', sep='\n')
