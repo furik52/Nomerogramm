@@ -1,8 +1,10 @@
 from customtkinter import *
 import cv2
 import numpy as np
+from typing import *
 
-def main(path_to_file, out_size = 28):
+
+def main(path_to_file, out_size = 28) -> List[Any]:
     print('Путь до файла:', path_to_file)
     image = cv2.imdecode(np.fromfile(path_to_file, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
     cv2.imshow("OpenCV", image)
