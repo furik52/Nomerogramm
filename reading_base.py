@@ -4,9 +4,14 @@ import keras
 import neural_network
 import example
 import os
+<<<<<<< Updated upstream
 from tensorflow_datasets import mnist
+=======
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+>>>>>>> Stashed changes
 
-emnist_path = os.getcwd() + '\\emnist'
+
+emnist_path = os.getcwd() + '\\emnist\\'
 X_train = idx2numpy.convert_from_file(emnist_path + 'emnist-byclass-train-images-idx3-ubyte')
 y_train = idx2numpy.convert_from_file(emnist_path + 'emnist-byclass-train-labels-idx1-ubyte')
 

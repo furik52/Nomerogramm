@@ -1,7 +1,7 @@
 import keras
 import neural_network
 import numpy as np
-model = keras.models.load_model('emnist_letters.h5')
+#model = keras.models.load_model('emnist_letters.h5')
 
 def emnist_predict_img(model, img):
     img_arr = np.expand_dims(img, axis=0)
