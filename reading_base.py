@@ -4,6 +4,7 @@ import keras
 import neural_network
 import example
 import os
+from tensorflow_datasets import mnist
 
 emnist_path = os.getcwd() + '\\emnist'
 X_train = idx2numpy.convert_from_file(emnist_path + 'emnist-byclass-train-images-idx3-ubyte')
