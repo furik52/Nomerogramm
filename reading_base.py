@@ -4,15 +4,9 @@ import keras
 import neural_network
 import example
 import os
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 from tensorflow_datasets import mnist
-=======
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
->>>>>>> Stashed changes
-=======
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
->>>>>>> Stashed changes
+
 
 
 emnist_path = os.getcwd() + '\\emnist\\'
