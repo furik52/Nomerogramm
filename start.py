@@ -7,7 +7,7 @@ command = init
 
 os.system('.\\venv\\ExecutionPolicy.bat')
 
-if os.path.isdir("./venv/venv") and ('-u' in sys.argv or '--update' in sys.argv):
+if os.path.isdir("./venv/venv") and ('-U' in sys.argv or '-u' in sys.argv or '--update' in sys.argv):
     command = update
 elif os.path.exists("./venv/venv/Scripts/Activate.ps1"):
     command = activate
