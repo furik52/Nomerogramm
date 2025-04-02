@@ -7,7 +7,7 @@ import nomerogramm
 set_appearance_mode('dark')
 set_default_color_theme('green')
 
-os.system('cls')
+#os.system('cls')
 root = CTk()
 root.title('Номерограмм')
 root.geometry('800x600')

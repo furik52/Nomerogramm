@@ -1,11 +1,6 @@
-import nomerogramm
 from tensorflow import keras
 from keras.models import Sequential
-from keras import optimizers
-from keras.layers import Convolution2D, MaxPooling2D, Dropout, Flatten, Dense, Reshape, LSTM, BatchNormalization
-from keras.optimizers import SGD, RMSprop, Adam
-from keras import backend as K
-import tensorflow as tf
+from keras.layers import Convolution2D, MaxPooling2D, Dropout, Flatten, Dense
 
 emnist_labels = [i for i in range(48, 123)]
 

@@ -2,9 +2,10 @@ from customtkinter import *
 import cv2
 import numpy as np
 from typing import *
+import example
 
-
-def main(path_to_file, out_size = 28) -> List[Any]:
+letters = []
+def main(path_to_file : str, out_size = 28) -> List[Any]:
     print('Путь до файла:', path_to_file)
     image = cv2.imdecode(np.fromfile(path_to_file, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
     cv2.imshow("OpenCV", image)
@@ -14,15 +15,11 @@ def main(path_to_file, out_size = 28) -> List[Any]:
 
     contours, hierarchy = cv2.findContours(img_erode, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
     output = image.copy()
-    letters = []
     for idx, contour in enumerate(contours):
         (x, y, w, h) = cv2.boundingRect(contour)
         if hierarchy[0][idx][3] == 0:
             cv2.rectangle(output, (x, y), (x + w, y + h), (70, 0, 0), 1)
             letter_crop = gray_image[y:y + h, x:x + w]
-            # print(letter_crop.shape)
-
-            # Resize letter canvas to square
             size_max = max(w, h)
             letter_square = 255 * np.ones(shape=[size_max, size_max], dtype=np.uint8)
             if w > h:
@@ -45,10 +42,15 @@ def main(path_to_file, out_size = 28) -> List[Any]:
 
     # Sort array in place by X-coordinate
             letters.sort(key=lambda x: x[0], reverse=False)
+    #print(letters)
+    for i in letters: 
+        for j in range(28): print(len(i[2][j]), end=' ')
+        print()
     print(len(letters))
-    '''cv2.imshow("0", letters[0][1])
-    cv2.imshow("1", letters[1][2])
-    cv2.imshow("2", letters[2][2])
-    cv2.imshow("3", letters[3][2])
-    cv2.imshow("4", letters[4][2])'''
+    '''for i in letters:
+        print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+        example.img_to_str(example.model, i[2])
+        print()
+        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+        print(i)'''
     cv2.waitKey(0)
