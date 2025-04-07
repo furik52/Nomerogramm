@@ -4,6 +4,7 @@ from keras.layers import Convolution2D, MaxPooling2D, Dropout, Flatten, Dense
 
 emnist_labels = [i for i in range(48, 123)]
 
+#получает на вход изображение 28x28 (2)
 def emnist_model():
     model = Sequential()
     model.add(Convolution2D(filters=32, kernel_size=(3, 3), padding='valid', input_shape=(28, 28, 1), activation='relu'))
@@ -16,3 +17,6 @@ def emnist_model():
     model.add(Dense(len(emnist_labels), activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='adadelta', metrics=['accuracy'])
     return model
+
+#к «выходу» которой подсоединена «линейная» сеть MLP, 
+# формирующая окончательный результат

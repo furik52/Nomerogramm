@@ -3,6 +3,7 @@ import neural_network
 import numpy as np
 model = keras.models.load_model('emnist_letters.h5')
 
+#Для распознавания мы загружаем модель и вызываем функцию predict_classes.(3)
 def emnist_predict_img(model, img):
     img_arr = np.expand_dims(img, axis=0)
     img_arr = 1 - img_arr/255.0

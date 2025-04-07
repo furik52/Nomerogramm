@@ -41,12 +41,10 @@ def main(path_to_file : str, out_size = 28) -> List[Any]:
             letters.append((x, w, cv2.resize(letter_square, (out_size, out_size), interpolation=cv2.INTER_AREA)))
 
     # Sort array in place by X-coordinate
-            letters.sort(key=lambda x: x[0], reverse=False)
-    #print(letters)
-    for i in letters: 
-        for j in range(28): print(len(i[2][j]), end=' ')
-        print()
-    print(len(letters))
+    letters.sort(key=lambda x: x[0], reverse=False)
+    return letters
+    #сохраняем каждую букву в letters (1)
+    
     '''for i in letters:
         print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
         example.img_to_str(example.model, i[2])
