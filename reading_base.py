@@ -19,7 +19,7 @@ y_test = idx2numpy.convert_from_file(emnist_path + 'emnist-byclass-test-labels-i
 X_train = np.reshape(X_train, (X_train.shape[0], 28, 28, 1))
 X_test = np.reshape(X_test, (X_test.shape[0], 28, 28, 1))
 
-print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, len(neural_network.emnist_labels))
+print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, len(neural_network.Car_plate_labels))
 
 k = 10
 X_train = X_train[:X_train.shape[0] // k]
@@ -33,8 +33,8 @@ X_train /= 255.0
 X_test = X_test.astype(np.float32)
 X_test /= 255.0
 
-x_train_cat = keras.utils.to_categorical(y_train, len(neural_network.emnist_labels))
-y_test_cat = keras.utils.to_categorical(y_test, len(neural_network.emnist_labels))
+x_train_cat = keras.utils.to_categorical(y_train, len(neural_network.Car_plate_labels))
+y_test_cat = keras.utils.to_categorical(y_test, len(neural_network.Car_plate_labels))
 
 learning_rate_reduction = keras.callbacks.ReduceLROnPlateau(monitor='val_accuracy', patience=3, verbose=1, factor=0.5, min_lr=0.00001)
 

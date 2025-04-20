@@ -10,18 +10,20 @@ def main(path_to_file : str, out_size = 28) -> List[Any]:
     image = cv2.imdecode(np.fromfile(path_to_file, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
     cv2.imshow("OpenCV", image)
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    ret, thresh = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY)
+    thresh = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
     img_erode = cv2.erode(thresh, np.ones((3, 3), np.uint8), iterations=1)
 
     contours, hierarchy = cv2.findContours(img_erode, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
     output = image.copy()
     for idx, contour in enumerate(contours):
         (x, y, w, h) = cv2.boundingRect(contour)
+        if w * h < 50: continue
         if hierarchy[0][idx][3] == 0:
             cv2.rectangle(output, (x, y), (x + w, y + h), (70, 0, 0), 1)
             letter_crop = gray_image[y:y + h, x:x + w]
             size_max = max(w, h)
             letter_square = 255 * np.ones(shape=[size_max, size_max], dtype=np.uint8)
+
             if w > h:
                 # Enlarge image top-bottom
                 # ------
@@ -42,13 +44,6 @@ def main(path_to_file : str, out_size = 28) -> List[Any]:
 
     # Sort array in place by X-coordinate
     letters.sort(key=lambda x: x[0], reverse=False)
+    print(len(letters))
     return letters
     #сохраняем каждую букву в letters (1)
-    
-    '''for i in letters:
-        print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
-        example.img_to_str(example.model, i[2])
-        print()
-        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-        print(i)'''
-    cv2.waitKey(0)

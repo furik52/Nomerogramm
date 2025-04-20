@@ -13,4 +13,4 @@ def emnist_predict_img(model, img):
 
     predict = model.predict([img_arr])
     result = np.argmax(predict, axis=1)
-    return chr(neural_network.emnist_labels[result[0]])
+    return chr(neural_network.Car_plate_labels[result[0]])
