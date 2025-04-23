@@ -1,0 +1,110 @@
+item {
+    name: "0",
+    id: 1,
+    display_name: "0"
+}
+item {
+    name: "1",
+    id: 2,
+    display_name: "1"
+}
+item {
+    name: "2",
+    id: 3,
+    display_name: "2"
+}
+item {
+    name: "3",
+    id: 4,
+    display_name: "3"
+}
+item {
+    name: "4",
+    id: 5,
+    display_name: "4"
+}
+item {
+    name: "5",
+    id: 6,
+    display_name: "5"
+}
+item {
+    name: "6",
+    id: 7,
+    display_name: "6"
+}
+item {
+    name: "7",
+    id: 8,
+    display_name: "7"
+}
+item {
+    name: "8",
+    id: 9,
+    display_name: "8"
+}
+item {
+    name: "9",
+    id: 10,
+    display_name: "9"
+}
+item {
+    name: "A",
+    id: 11,
+    display_name: "A"
+}
+item {
+    name: "B",
+    id: 12,
+    display_name: "B"
+}
+item {
+    name: "C",
+    id: 13,
+    display_name: "C"
+}
+item {
+    name: "E",
+    id: 14,
+    display_name: "E"
+}
+item {
+    name: "H",
+    id: 15,
+    display_name: "H"
+}
+item {
+    name: "K",
+    id: 16,
+    display_name: "K"
+}
+item {
+    name: "M",
+    id: 17,
+    display_name: "M"
+}
+item {
+    name: "O",
+    id: 18,
+    display_name: "O"
+}
+item {
+    name: "P",
+    id: 19,
+    display_name: "P"
+}
+item {
+    name: "T",
+    id: 20,
+    display_name: "T"
+}
+item {
+    name: "X",
+    id: 21,
+    display_name: "X"
+}
+item {
+    name: "Y",
+    id: 22,
+    display_name: "Y"
+}

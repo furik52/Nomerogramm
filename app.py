@@ -14,7 +14,7 @@ root = CTk()
 root.title('Номерограмм')
 root.geometry('800x600')
 def click_handler():
-    result  = example.img_to_str(keras.models.load_model('emnist_letters.h5'), filedialog.askopenfile().name)
+    result  = example.recognize_number_plate(filedialog.askopenfile().name)
     print('результат', result)
 
 btn = CTkButton(master=root, text='Выберите фотографию', corner_radius=16, command=click_handler)

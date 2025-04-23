@@ -1,16 +1,24 @@
+import numpy as np
 import keras
 import neural_network
-import numpy as np
-model = keras.models.load_model('emnist_letters.h5')
 
-#Для распознавания мы загружаем модель и вызываем функцию predict_classes.(3)
-def emnist_predict_img(model, img):
-    img_arr = np.expand_dims(img, axis=0)
-    img_arr = 1 - img_arr/255.0
-    img_arr[0] = np.rot90(img_arr[0], 3)
-    img_arr[0] = np.fliplr(img_arr[0])
-    img_arr = img_arr.reshape((1, 28, 28, 1))
+def preprocess_char(img: np.ndarray) -> np.ndarray:
+    img = img.astype('float32') / 255.0
+    img = np.expand_dims(img, axis=-1)
+    return np.expand_dims(img, axis=0)
 
-    predict = model.predict([img_arr])
-    result = np.argmax(predict, axis=1)
-    return chr(neural_network.Car_plate_labels[result[0]])
+def predict_char(model: keras.Model, img: np.ndarray) -> str:
+    processed = preprocess_char(img)
+    pred = model.predict(processed, verbose=0)
+    idx = np.argmax(pred)
+    print(f"[DEBUG] Предсказанный индекс: {idx}, класс: {neural_network.Car_plate_labels[idx]}")
+    return neural_network.Car_plate_labels[idx]
+
+def recognize_plate(model: keras.Model, chars: list) -> str:
+    result = []
+    for x, w, char_img in chars:
+        char = predict_char(model, char_img)
+        result.append(char)
+        if len(result) in (3, 6):
+            result.append(' ')
+    return ''.join(result).strip()
