@@ -1,1 +1,0 @@
-powershell Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
