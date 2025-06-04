@@ -1,21 +1,9 @@
-import os
-
 import torch
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-FILE_PATH = os.environ.get(
-    'file_path', 
-    os.path.normpath("test/videos/deo-legend.jpg")
-)
-YOLO_MODEL_PATH = os.environ.get(
-    'yolo_model', 
-    os.path.normpath("object_detection/YOLOS_cars.pt")
-)
-LPR_MODEL_PATH = os.environ.get(
-    'lpr_model', 
-    os.path.normpath("lpr_net/model/weights/LPRNet__iteration_2000_28.09.pth")
-)
+YOLO_MODEL_PATH = "object_detection/YOLOS_cars.pt"
+LPR_MODEL_PATH = "lpr_net/model/weights/LPRNet__iteration_2000_28.09.pth"
 
 YOLO_CONF = 0.5
 YOLO_IOU = 0.4
