@@ -1,4 +1,3 @@
-# license_plates_ocr.yaml
 path: /kaggle/input/license-plates-1-209-438-ocr-plates  # Путь к датасету в Kaggle
 
 # Структура датасета
