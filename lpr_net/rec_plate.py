@@ -49,7 +49,7 @@ def rec_plate(lprnet, img) -> str:
         pre_c = preds_label[0]
         if pre_c != len(CHARS) - 1:
             label += CHARS[pre_c]
-        for c in preds_label:  # dropout repeate label and blank label
+        for c in preds_label: 
             if (pre_c == c) or (c == len(CHARS) - 1):
                 if c == len(CHARS) - 1:
                     pre_c = c

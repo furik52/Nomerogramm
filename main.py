@@ -201,7 +201,7 @@ def run_gui():
         font=("Arial", 16),
         height=50,
         width=200,
-        fg_color="#70FF9F",  # светло-зеленая кнопка
+        fg_color="#70FF9F",
         text_color="black",
         hover_color="#55D88C"
     )

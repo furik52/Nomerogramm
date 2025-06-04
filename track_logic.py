@@ -5,16 +5,6 @@ import numpy
 
 def check_numbers_overlaps(labls_cords: dict) -> list:
 
-    """
-    Check each number's BB and correlate it with car's BB
-
-    return: list - the list has following structure [
-        [(number's cords), (car's cords), 'car_type'],
-        [(number's cords), (car's cords), 'car_type'],
-        ...
-        ]
-    """
-
     new_cars = []
 
     for number in labls_cords["numbers"]:
